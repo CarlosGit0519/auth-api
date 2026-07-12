@@ -1,0 +1,38 @@
+{
+  "name": "auth-api",
+  "version": "1.0.0",
+  "description": "A REST API for user authentication, built as a backend portfolio project.",
+  "main": "dist/server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosGit0519/auth-api.git"
+  },
+  "keywords": [],
+  "author": "Carlos",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CarlosGit0519/auth-api/issues"
+  },
+  "homepage": "https://github.com/CarlosGit0519/auth-api#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.1",
+    "tsx": "^4.23.0",
+    "typescript": "^7.0.2"
+  }
+}
