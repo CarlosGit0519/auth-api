@@ -1,0 +1,21 @@
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://mongo:27017/auth-api
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in your local .env file}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-1h}
+    depends_on:
+      mongo:
+        condition: service_started
+
+  mongo:
+    image: mongo:8
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

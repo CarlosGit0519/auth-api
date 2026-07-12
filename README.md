@@ -68,6 +68,25 @@ npm run dev
 
 The API will be available at `http://localhost:3000`.
 
+## Run with Docker
+
+Docker Compose starts the API and a MongoDB container together:
+
+```bash
+docker compose up --build
+```
+
+The API is available at `http://localhost:3000` and MongoDB data is persisted
+in the `mongo-data` Docker volume. The local `.env` file must include
+`JWT_SECRET`; Docker Compose connects the API to the MongoDB container
+automatically.
+
+To stop the containers:
+
+```bash
+docker compose down
+```
+
 ## API documentation
 
 With the server running, open [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
