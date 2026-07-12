@@ -61,3 +61,23 @@ export async function login(request: Request, response: Response): Promise<void>
     },
   });
 }
+
+export async function getCurrentUser(request: Request, response: Response): Promise<void> {
+  const user = await UserModel.findById(request.auth?.userId);
+
+  if (!user) {
+    throw new AppError(401, 'User associated with this token no longer exists.');
+  }
+
+  response.status(200).json({
+    data: {
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+      },
+    },
+  });
+}
